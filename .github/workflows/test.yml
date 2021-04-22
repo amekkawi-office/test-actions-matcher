@@ -5,7 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo "##[add-matcher]$(pwd)/eslint-compact.json"
+      - run: cp /eslint-compact.json "$HOME/"
+      - run: echo "##[add-matcher]$HOME/eslint-compact.json"
       - run: >
           echo "$(pwd)/index.js: line 2, col 1, Warning - 1111. (no-var)"
       - run: >
