@@ -1,12 +1,34 @@
 name: Actions Matcher Test
 on: [push]
 jobs:
-  lint:
+  eslint:
     runs-on: ubuntu-latest
     steps:
+      - run: echo "Workflow - ${{github.workflow}}"
+      - run: echo "Workspace - ${{github.workspace}}"
       - uses: actions/checkout@v2
-      - run: echo "##[add-matcher]$(pwd)/eslint-compact.json"
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci
+      - run: npm run lint
+  manual-test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Workspace - ${{github.workspace}}"
+      - uses: actions/checkout@v2
+      - run: pwd
+      - run: echo "HOME - $HOME"
+      - run: echo "GITHUB_WORKSPACE - $GITHUB_WORKSPACE"
+      - run: echo "RUNNER_WORKSPACE - $RUNNER_WORKSPACE"
+      - run: ls -l /
+      - run: echo "Workspace - ${{github.workspace}}"
+      - run: echo "::add-matcher::$(pwd)/eslint-compact.json"
       - run: >
           echo "$(pwd)/index.js: line 2, col 1, Warning - 1111. (no-var)"
       - run: >
           echo "index.js: line 3, col 1, Error - 2222 (no-var)"
+      - run: >
+          echo "$(pwd)/eslint-compact.json: line 2, col 1, Warning - 3333. (no-var)"
+      - run: >
+          echo "eslint-compact.json: line 3, col 1, Error - 4444 (no-var)"

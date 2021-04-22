@@ -1,0 +1,12 @@
+{
+  "name": "test-actions-matcher",
+  "version": "1.0.0",
+  "description": "test-actions-matcher",
+  "scripts": {
+    "lint": "eslint . --format compact"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.24.0"
+  }
+}
