@@ -7,6 +7,6 @@ jobs:
       - uses: actions/checkout@v2
       - run: echo "##[add-matcher]$(pwd)/eslint-compact.json"
       - run: >
-          echo "$(pwd)/index.js: line 1, col 1, Warning - 1111. (no-var)"
+          echo "$(pwd)/index.js: line 2, col 1, Warning - 1111. (no-var)"
       - run: >
-          echo "index.js: line 1, col 1, Warning - 2222 (no-var)"
+          echo "index.js: line 3, col 1, Error - 2222 (no-var)"
