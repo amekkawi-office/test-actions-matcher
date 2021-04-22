@@ -18,6 +18,9 @@ jobs:
       - run: echo "Workspace - ${{github.workspace}}"
       - uses: actions/checkout@v2
       - run: pwd
+      - run: echo "HOME - $HOME"
+      - run: echo "GITHUB_WORKSPACE - $GITHUB_WORKSPACE"
+      - run: echo "RUNNER_WORKSPACE - $RUNNER_WORKSPACE"
       - run: ls -l /
       - run: ls -l /github
       - run: ls -l /github/workspace
