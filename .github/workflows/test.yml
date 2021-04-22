@@ -18,6 +18,7 @@ jobs:
       - run: echo "Workspace - ${{github.workspace}}"
       - uses: actions/checkout@v2
       - run: pwd
+      - run: ls
       - run: echo "Workspace - ${{github.workspace}}"
       - run: echo "::add-matcher::$(pwd)/eslint-compact.json"
       - run: >
