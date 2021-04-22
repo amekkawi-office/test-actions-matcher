@@ -5,5 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: echo "##[add-matcher]$(pwd)/eslint-compact.json"
       - run: >
-          echo "$(pwd)/index.js: line 11, col 1, Warning - Unexpected var, use let or const instead. (no-var)"
+          echo "$(pwd)/index.js: line 11, col 1, Warning - 1111. (no-var)"
+      - run: >
+          echo "index.js: line 11, col 1, Warning - 2222 (no-var)"
