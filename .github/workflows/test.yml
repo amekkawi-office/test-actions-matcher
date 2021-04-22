@@ -1,0 +1,9 @@
+name: Actions Matcher Test
+on: [push]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: >
+          echo "$(pwd)/index.js: line 11, col 1, Warning - Unexpected var, use let or const instead. (no-var)"
